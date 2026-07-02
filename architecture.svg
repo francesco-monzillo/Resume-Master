@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 580" width="800" height="580" style="background-color: #1a202c; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Defs for arrowheads and markers -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#cbd5e0" />
+    </marker>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="100%" height="100%" fill="#121214" rx="10"/>
+
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" font-size="18" font-weight="bold" fill="#f7fafc" letter-spacing="0.5">Resume Master Infrastructure Architecture</text>
+
+  <!-- Client Browser Box with Window Controls -->
+  <g id="browser-client">
+    <rect x="300" y="70" width="200" height="45" rx="6" fill="#1e2d3d" stroke="#4299e1" stroke-width="2"/>
+    <!-- Window Header Line -->
+    <line x1="300" y1="84" x2="500" y2="84" stroke="#4299e1" stroke-width="1"/>
+    <!-- Window Controls -->
+    <circle cx="312" cy="77" r="3" fill="#ef4444"/>
+    <circle cx="322" cy="77" r="3" fill="#f59e0b"/>
+    <circle cx="332" cy="77" r="3" fill="#10b981"/>
+    <text x="405" y="101" text-anchor="middle" font-size="13" font-weight="600" fill="#90cdf4">Client Browser</text>
+  </g>
+
+  <!-- Connection: Browser -> Frontend -->
+  <path d="M 400 115 L 400 150" fill="none" stroke="#cbd5e0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Stateless Tier Boundary Box -->
+  <rect x="80" y="145" width="640" height="135" rx="8" fill="none" stroke="#4a5568" stroke-width="2" stroke-dasharray="6,6"/>
+  <text x="95" y="168" font-size="10" font-weight="bold" fill="#a0aec0" letter-spacing="1">STATELESS APPLICATION TIER (K8S DEPLOYMENTS)</text>
+
+  <!-- Frontend Pod (Angular) -->
+  <g id="frontend-pod">
+    <rect x="120" y="185" width="220" height="75" rx="8" fill="#3b1d24" stroke="#f56565" stroke-width="2"/>
+    <!-- K8s POD Tag -->
+    <rect x="302" y="191" width="30" height="14" rx="3" fill="#4a5568" stroke="#f56565" stroke-width="0.5"/>
+    <text x="317" y="201" text-anchor="middle" font-size="8" font-weight="bold" fill="#f7fafc">POD</text>
+    <!-- Angular Logo Shield (Vector Path) -->
+    <path d="M 151 202 L 135 207 L 138 228 L 151 236 L 164 228 L 167 207 Z" fill="#dd0031"/>
+    <path d="M 151 206 L 143 226 L 146 226 L 148 221 L 154 221 L 156 226 L 159 226 Z M 151 211 L 153 217 L 149 217 Z" fill="#ffffff"/>
+    <text x="245" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#feb2b2">Frontend Pod</text>
+    <text x="245" y="235" text-anchor="middle" font-size="12" fill="#f56565" font-weight="600">Angular (SPA)</text>
+  </g>
+
+  <!-- Connection: Frontend -> Backend -->
+  <path d="M 340 222 L 450 222" fill="none" stroke="#cbd5e0" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Stylized API Circle Badge -->
+  <g id="api-badge">
+    <circle cx="395" cy="222" r="14" fill="#1a202c" stroke="#cbd5e0" stroke-width="1.5"/>
+    <text x="395" y="226" text-anchor="middle" font-size="9" font-weight="bold" fill="#cbd5e0">API</text>
+  </g>
+
+  <!-- Backend Pod (FastAPI) -->
+  <g id="backend-pod">
+    <rect x="460" y="185" width="220" height="75" rx="8" fill="#143537" stroke="#319795" stroke-width="2"/>
+    <!-- K8s POD Tag -->
+    <rect x="642" y="191" width="30" height="14" rx="3" fill="#4a5568" stroke="#319795" stroke-width="0.5"/>
+    <text x="657" y="201" text-anchor="middle" font-size="8" font-weight="bold" fill="#f7fafc">POD</text>
+    <!-- FastAPI Logo (Vector Path) -->
+    <circle cx="478" cy="222" r="16" fill="#009688"/>
+    <path d="M 479 210 L 470 222 L 477 222 L 475 233 L 485 219 L 479 219 Z" fill="#ffffff"/>
+    <text x="585" y="215" text-anchor="middle" font-size="14" font-weight="bold" fill="#4fd1c5">Backend Pod</text>
+    <text x="585" y="235" text-anchor="middle" font-size="12" fill="#319795" font-weight="600">FastAPI (Python)</text>
+  </g>
+
+  <!-- Connection: Backend -> mongodb-0 (Primary) -->
+  <path d="M 570 260 L 570 300 L 400 300 L 400 330" fill="none" stroke="#cbd5e0" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="475" y="292" text-anchor="middle" font-size="10" font-weight="bold" fill="#cbd5e0">Write / Read Queries</text>
+
+  <!-- Stateful Tier Boundary Box -->
+  <rect x="80" y="295" width="640" height="260" rx="8" fill="none" stroke="#4a5568" stroke-width="2" stroke-dasharray="6,6"/>
+  <text x="95" y="318" font-size="10" font-weight="bold" fill="#a0aec0" letter-spacing="1">STATEFUL DATABASE TIER (K8S STATEFULSET)</text>
+
+  <!-- mongodb-0 Pod Box (Primary) -->
+  <g id="mongodb-0-pod">
+    <rect x="290" y="340" width="220" height="50" rx="6" fill="#1c3326" stroke="#48bb78" stroke-width="2"/>
+    <!-- K8s POD Tag -->
+    <rect x="472" y="343" width="30" height="14" rx="3" fill="#4a5568" stroke="#48bb78" stroke-width="0.5"/>
+    <text x="487" y="353" text-anchor="middle" font-size="8" font-weight="bold" fill="#f7fafc">POD</text>
+    <!-- DB Cylinder Icon -->
+    <ellipse cx="312" cy="358" rx="8" ry="3" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 304 358 A 8 3 0 0 0 320 358 L 320 368 A 8 3 0 0 1 304 368 Z" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 304 363 A 8 3 0 0 0 320 363" fill="none" stroke="#48bb78" stroke-width="1.5"/>
+    <text x="415" y="370" text-anchor="middle" font-size="13" font-weight="bold" fill="#68d391">mongodb-0 (Primary)</text>
+  </g>
+
+  <!-- mongodb-0 PVC (Persistent Volume Claim) -->
+  <g id="pvc-0">
+    <rect x="100" y="347" width="170" height="35" rx="4" fill="#3c271c" stroke="#ed8936" stroke-dasharray="3,3" stroke-width="1.5"/>
+    <!-- Storage Platter Stack Icon -->
+    <ellipse cx="118" cy="360" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <ellipse cx="118" cy="366" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <path d="M 110 360 L 110 366 A 8 3 0 0 0 126 366 L 126 360" fill="none" stroke="#ed8936" stroke-width="1.5"/>
+    <text x="195" y="369" text-anchor="middle" font-size="11" font-weight="bold" fill="#f6ad55">PVC 0 (Storage)</text>
+  </g>
+
+  <!-- Connection: mongodb-0 -> PVC 0 -->
+  <line x1="290" y1="365" x2="275" y2="365" stroke="#ed8936" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+
+  <!-- Replication Sync Connections: mongodb-0 -> mongodb-1 and mongodb-2 -->
+  <path d="M 400 390 L 400 415 L 230 415 L 230 435" fill="none" stroke="#cbd5e0" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <path d="M 400 390 L 400 415 L 570 415 L 570 435" fill="none" stroke="#cbd5e0" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <text x="400" y="411" text-anchor="middle" font-size="10" font-weight="bold" fill="#cbd5e0">Replication Sync</text>
+
+  <!-- mongodb-1 Pod Box (Secondary) -->
+  <g id="mongodb-1-pod">
+    <rect x="120" y="440" width="220" height="50" rx="6" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <!-- K8s POD Tag -->
+    <rect x="302" y="443" width="30" height="14" rx="3" fill="#4a5568" stroke="#48bb78" stroke-width="0.5"/>
+    <text x="317" y="453" text-anchor="middle" font-size="8" font-weight="bold" fill="#f7fafc">POD</text>
+    <!-- DB Cylinder Icon -->
+    <ellipse cx="142" cy="458" rx="8" ry="3" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 134 458 A 8 3 0 0 0 150 458 L 150 468 A 8 3 0 0 1 134 468 Z" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 134 463 A 8 3 0 0 0 150 463" fill="none" stroke="#48bb78" stroke-width="1.5"/>
+    <text x="235" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="#68d391">mongodb-1 (Secondary)</text>
+  </g>
+
+  <!-- mongodb-2 Pod Box (Secondary) -->
+  <g id="mongodb-2-pod">
+    <rect x="460" y="440" width="220" height="50" rx="6" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <!-- K8s POD Tag -->
+    <rect x="642" y="443" width="30" height="14" rx="3" fill="#4a5568" stroke="#48bb78" stroke-width="0.5"/>
+    <text x="657" y="453" text-anchor="middle" font-size="8" font-weight="bold" fill="#f7fafc">POD</text>
+    <!-- DB Cylinder Icon -->
+    <ellipse cx="482" cy="458" rx="8" ry="3" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 474 458 A 8 3 0 0 0 490 458 L 490 468 A 8 3 0 0 1 474 468 Z" fill="#1c3326" stroke="#48bb78" stroke-width="1.5"/>
+    <path d="M 474 463 A 8 3 0 0 0 490 463" fill="none" stroke="#48bb78" stroke-width="1.5"/>
+    <text x="575" y="470" text-anchor="middle" font-size="13" font-weight="bold" fill="#68d391">mongodb-2 (Secondary)</text>
+  </g>
+
+  <!-- Storage PVC 1 (under mongodb-1) -->
+  <g id="pvc-1">
+    <rect x="140" y="505" width="180" height="35" rx="4" fill="#3c271c" stroke="#ed8936" stroke-dasharray="3,3" stroke-width="1.5"/>
+    <!-- Storage Platter Stack Icon -->
+    <ellipse cx="158" cy="518" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <ellipse cx="158" cy="524" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <path d="M 150 518 L 150 524 A 8 3 0 0 0 166 524 L 166 518" fill="none" stroke="#ed8936" stroke-width="1.5"/>
+    <text x="245" y="527" text-anchor="middle" font-size="11" font-weight="bold" fill="#f6ad55">PVC 1 (Storage)</text>
+  </g>
+
+  <!-- Storage PVC 2 (under mongodb-2) -->
+  <g id="pvc-2">
+    <rect x="480" y="505" width="180" height="35" rx="4" fill="#3c271c" stroke="#ed8936" stroke-dasharray="3,3" stroke-width="1.5"/>
+    <!-- Storage Platter Stack Icon -->
+    <ellipse cx="498" cy="518" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <ellipse cx="498" cy="524" rx="8" ry="3" fill="#3c271c" stroke="#ed8936" stroke-width="1.5"/>
+    <path d="M 490 518 L 490 524 A 8 3 0 0 0 506 524 L 506 518" fill="none" stroke="#ed8936" stroke-width="1.5"/>
+    <text x="585" y="527" text-anchor="middle" font-size="11" font-weight="bold" fill="#f6ad55">PVC 2 (Storage)</text>
+  </g>
+
+  <!-- Connections: Pods -> PVCs -->
+  <line x1="230" y1="490" x2="230" y2="500" stroke="#ed8936" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+  <line x1="570" y1="490" x2="570" y2="500" stroke="#ed8936" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow)"/>
+</svg>
