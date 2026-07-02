@@ -1,0 +1,127 @@
+.chat-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.chatBot {
+  /*TEMPORARILY REMOVED*/
+  /*border: 3px solid #2F8D46;*/
+  border-radius: 10px;
+  margin: auto;
+  overflow: hidden;
+  width: 500px;
+  overflow-y: clip;
+  height: 671px;
+  background: rgb(255, 255, 255);
+  background-size: contain;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header.chat-header {
+  background-color: var(--secondary-color);
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 7px 7px 0 0;
+}
+
+header.chat-header h2 {
+  color: #fff;
+  margin: 0;
+}
+
+.chatbox {
+  padding: 15px;
+  list-style: none;
+  overflow-y: auto;
+  height: 400px;
+}
+
+.chatbox li {
+  margin-bottom: 10px;
+}
+
+.chat p {
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.chat-outgoing p {
+  background-color: black;
+  align-self: flex-end;
+  color: white;
+}
+
+.chat-incoming p {
+  background-color: #eaeaea;
+}
+
+.chat-input {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.chat-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  resize: none;
+  outline: none;
+  overflow-y: scroll;
+  background-color: #dcdcdc85;
+  font-size: 16px;
+  color: black;
+  font-weight: 600;
+  margin-top: -10px;
+  margin-left: -15px;
+  height: 71px;
+}
+
+#cross {
+  float: right;
+  position: relative;
+  top: -38px;
+  left: -15px;
+  cursor: pointer;
+  color: white;
+  font-weight: bolder;
+  font-size: 28px;
+}
+
+#cross:hover {
+  color: rgb(54, 20, 20);
+  transition: all .5s;
+}
+
+.chatbox .chat p.error {
+  color: #ffffff;
+  background-color: #ff3737e8;
+}
+
+#sendBTN {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  outline: none;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 7px;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+  color: rgb(228, 210, 210);
+  margin-top: 12px;
+}
+
+.lastMessage {
+  margin-top: 50px;
+  font-size: 35px;
+  font-weight: 600;
+  color: black;
+  margin-left: 550px;
+}

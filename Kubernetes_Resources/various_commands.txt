@@ -1,0 +1,1 @@
+kubectl create secret generic backend-secret --from-env-file=<path_to_.env_file>

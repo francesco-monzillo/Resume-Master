@@ -1,0 +1,40 @@
+services:
+
+  backend:
+    image: resume-master-backend
+    container_name: resume-master-backend
+    pull_policy: never
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/API/.env
+    depends_on:
+      - mongodb
+
+  frontend:
+    image: resume-master-frontend
+    container_name: resume-master-frontend
+    pull_policy: never
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  mongodb:
+    image: mongo:7.0.12
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/data:/data/db
+    env_file:
+      - ./mongodb/.env
+
+volumes:
+  mongodb_data:

@@ -1,0 +1,28 @@
+# ==========================================
+# 1. BACKEND DEPLOYMENT & SERVICE
+# ==========================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    app: backend
+spec:
+  replicas: 3 # You can scale stateless backends to multiple replicas safely
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: resume-master-backend # Replace with your backend image
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8000
+        envFrom:
+        - secretRef:
+            name: backend-secret

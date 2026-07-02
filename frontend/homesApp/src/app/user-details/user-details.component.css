@@ -1,0 +1,30 @@
+.listing {
+  background: var(--accent-color);
+  display: block;
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 46em;
+  margin: 35px;
+}
+.listing-name {
+  color: var(--primary-color);
+  padding: 0px 0px 0px 0px;
+  display: inline-block;
+}
+.listing-info {
+  padding: 10px 0px 0px 0px;
+}
+
+.id_info {
+  font-size: 20px;
+}
+
+section.listing a {
+  padding-left: 20px;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+section.listing a::after {
+  content: "\203A";
+  margin-left: 5px;
+}

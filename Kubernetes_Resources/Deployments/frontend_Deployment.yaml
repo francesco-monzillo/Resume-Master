@@ -1,0 +1,29 @@
+# ==========================================
+# 2. FRONTEND DEPLOYMENT & SERVICE
+# ==========================================
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: resume-master-frontend # Replace with your frontend image
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        #env:
+        # If your frontend is SSR (Next.js/Nuxt), it can talk to the backend internally:
+        #- name: BACKEND_URL
+        #  value: "http://backend-service:80"

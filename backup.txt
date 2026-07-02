@@ -1,0 +1,13 @@
+ backend:
+    image: resume-master-backend
+    container_name: resume-master-backend
+    pull_policy: never
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - ./backend/API/.env
+    depends_on:
+      - mongodb

@@ -1,0 +1,12 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+nodes:
+- role: control-plane
+  extraPortMappings:
+  - containerPort: 30080 # The internal Kubernetes NodePort
+    hostPort: 8080       
+    listenAddress: "127.0.0.1" # Restricts access to localhost for security
+    protocol: tcp
+  extraMounts:
+  - hostPath: C:\Users\fracm\Desktop\Programs\Projects\Docker\ResumeMaster\mongodb\data # Absolute path on your Windows machine
+    containerPath: /mnt/mongodb-data                            # Path inside the kind node container
