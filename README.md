@@ -23,7 +23,9 @@
 
 The application is split into stateless and stateful tiers to optimize scaling and persistent storage management within a Kubernetes cluster.
 
-![System Architecture](./architecture.svg)
+<p align="center">
+  <img src="./architecture.svg" alt="System Architecture" width="800" />
+</p>
 
 ### 1. Stateless Tier (Kubernetes Deployments)
 The application logic is separated into two decoupled, stateless services managed by standard Kubernetes **Deployments**:
